@@ -101,7 +101,15 @@ def send_signal_message(recipient: str, recipient_type: str, message: str):
             return
 
         logger.debug(f"Sending message to {recipient_type} {recipient}: {message}")
-        subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
+        # subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
+        
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        print("Command Output (stdout):", result.stdout)  # Capture standard output
+        print("Command Errors (stderr):", result.stderr)  # Capture error output
+    except subprocess.CalledProcessError as e:
+        print("Error Output:", e.stderr)  # If the command fails, capture error
+        print("Return Code:", e.returncode)
         logger.info(f"Message sent to {recipient}: {message}")
     except subprocess.CalledProcessError as e:
         logger.error(f"Error sending message to {recipient}: {e}")
