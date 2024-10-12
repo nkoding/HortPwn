@@ -1,0 +1,8 @@
+{
+    "signal_number": "+491234567890",
+    "hortpro_login": {
+        "email": "x@y.z",
+        "password": "..."
+    },
+    "check_interval_seconds": 60
+}

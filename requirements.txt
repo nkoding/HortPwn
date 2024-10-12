@@ -1,0 +1,5 @@
+requests
+requests-oauthlib
+oauthlib
+beautifulsoup4
+signal-cli  # If using Signal notifications
