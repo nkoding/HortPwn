@@ -1,5 +1,8 @@
  # HortPro Signal Notifier 
- ## Overview HortPro Signal Notifier is a Python-based tool that scrapes presence data from the HortPro website and sends notifications via Signal when a child checks in or out of daycare. It uses Signal-CLI to send messages to individual recipients or group chats. 
+ ## Overview 
+ 
+ HortPro Signal Notifier is a Python-based tool that scrapes presence data from the HortPro website and sends notifications via Signal when a child checks in or out of daycare. It uses Signal-CLI to send messages to individual recipients or group chats. 
+ 
  ## Prerequisites 
  - **Python 3.6+** 
  - **Signal-CLI** 
