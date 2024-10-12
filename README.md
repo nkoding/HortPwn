@@ -10,10 +10,13 @@
  
  ## Installation 
  
- 1. Clone the repository: ```bash git clone <repository-url> cd <repository-directory> ``` 
- 2. Install the required Python dependencies: ```bash pip install -r requirements.txt ``` 
+ 1. Clone the repository: 
+    ```bash git clone <repository-url> cd <repository-directory> ``` 
+ 2. Install the required Python dependencies: 
+    ```bash pip install -r requirements.txt ``` 
  3. Install Signal-CLI: - Signal-CLI is required to send messages. You can install it following the [official Signal-CLI installation documentation](https://github.com/AsamK/signal-cli/wiki/Installation). 
-    - After installing, place the executable in `bin/signal-cli`: ```bash mkdir -p bin mv /path/to/signal-cli bin/signal-cli chmod +x bin/signal-cli ``` 
+    - After installing, place the executable in `bin/signal-cli`: 
+        ```bash mkdir -p bin mv /path/to/signal-cli bin/signal-cli chmod +x bin/signal-cli ``` 
  4. Configure the application: - Create a configuration file (`config.json`) in the project directory with the following structure:
 
     ```
@@ -30,6 +33,7 @@
  5. adjust `scheduler.csv` to change predefined scraping windows:
 
     ```
+    
     day_of_week,start_time,end_time
     Monday,09:00,17:00
     Tuesday,09:00,17:00
@@ -43,16 +47,20 @@
  
     ``` bash python add_recipient.py <recipient_type> <recipient_id> ``` 
 
- - `<recipient_type>` can be either `individual` or `group`. 
- - `<recipient_id>` should be the phone number or Signal group ID. 
+    - `<recipient_type>` can be either `individual` or `group`. 
+    - `<recipient_id>` should be the phone number or Signal group ID. 
 
- ## Running the Application To start the notifier, run: 
-
-    ``` bash python main.py ```
-
-  The scraper will only run during the scheduled time windows as defined in `scheduler.csv`. 
+ ## Running the Application 
  
- ## Logging All application logs are written to `app.log`. The log file uses a rotating handler to limit its size. 
+ To start the notifier, run: 
+
+``` bash python main.py ```
+
+The scraper will only run during the scheduled time windows as defined in `scheduler.csv`. 
+ 
+ ## Logging 
+ All application logs are written to `app.log`. The log file uses a rotating handler to limit its size. 
+ 
  ## Troubleshooting
  
  1. **Unauthorized Error (401)**: - Ensure that your credentials in `config.json` are correct. - Delete the `cookie.txt` file to force a fresh login. 
