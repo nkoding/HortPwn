@@ -11,6 +11,10 @@ from datetime import datetime, timedelta, time as dtime
 import logging
 from logging.handlers import RotatingFileHandler
 
+# Define application directory and test file path
+app_dir = os.path.dirname(os.path.abspath(__file__))
+test_file_path = os.path.join(app_dir, 'test')
+
 # Configure logging with RotatingFileHandler
 handler = RotatingFileHandler('app.log', maxBytes=5*1024*1024, backupCount=2)
 handler.setLevel(logging.DEBUG)
@@ -213,6 +217,23 @@ def get_next_window_start(now, schedule):
         days_ahead +=1
     return None
 
+def run_test_mode():
+    logging.info("Test mode file found. Running test mode.")
+    for i in range(2):
+        logging.info("Simulating child check-in...")
+        for chat in chat_ids:
+            send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked in.")
+        time.sleep(60)
+
+        logging.info("Simulating child check-out...")
+        for chat in chat_ids:
+            send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked out.")
+        time.sleep(60)
+
+    # Delete the test file after completing test runs
+    os.remove(test_file_path)
+    logging.info("Test mode completed. Test file deleted. Resuming normal operation.")
+
 def main_loop():
     schedule = load_schedule()
 
@@ -220,6 +241,9 @@ def main_loop():
 
     while True:
         try:
+             # Check if test mode file exists
+            if os.path.isfile(test_file_path):
+                run_test_mode()
             now = datetime.now()
             weekday_str = now.strftime('%A').lower()
             current_time = now.time()
