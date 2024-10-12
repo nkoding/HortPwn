@@ -87,21 +87,20 @@ except Exception as e:
     chat_ids = []
 
 def send_signal_message(recipient: str, recipient_type: str, message: str):
-    try:
-        if recipient_type == "individual":
-            cmd = [
-                signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
-            ]
-        elif recipient_type == "group":
-            cmd = [
-                signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
-            ]
-        else:
-            logger.warning(f"Unknown recipient type: {recipient_type}")
-            return
+    if recipient_type == "individual":
+        cmd = [
+            signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
+        ]
+    elif recipient_type == "group":
+        cmd = [
+            signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
+        ]
+    else:
+        logger.warning(f"Unknown recipient type: {recipient_type}")
+        return
 
-        logger.debug(f"Sending message to {recipient_type} {recipient}: {message}")
-        # subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
+    logger.debug(f"Sending message to {recipient_type} {recipient}: {message}")
+    # subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
         
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
