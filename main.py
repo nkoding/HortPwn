@@ -90,11 +90,11 @@ def send_signal_message(recipient: str, recipient_type: str, message: str):
     try:
         if recipient_type == "individual":
             cmd = [
-                signal_cli_path, "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
+                signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
             ]
         elif recipient_type == "group":
             cmd = [
-                signal_cli_path, "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
+                signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
             ]
         else:
             logger.warning(f"Unknown recipient type: {recipient_type}")
