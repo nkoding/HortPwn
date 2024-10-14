@@ -1,5 +1,3 @@
-# main.py
-
 import csv
 import json
 import time
@@ -89,31 +87,44 @@ except Exception as e:
 def send_signal_message(recipient: str, recipient_type: str, message: str):
     if recipient_type == "individual":
         cmd = [
-            signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
+            signal_cli_path, "-u", SIGNAL_NUMBER, "send", "-m", message, recipient
         ]
     elif recipient_type == "group":
         cmd = [
-            signal_cli_path, "--verbose", "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
+            signal_cli_path, "-u", SIGNAL_NUMBER, "send", "-g", recipient, "-m", message
         ]
     else:
         logger.warning(f"Unknown recipient type: {recipient_type}")
         return
 
     logger.debug(f"Sending message to {recipient_type} {recipient}: {message}")
-    # subprocess.run(cmd, shell=True, check=True, capture_output=True, text=True)
-        
+    
     try:
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-        print("Command Output (stdout):", result.stdout)  # Capture standard output
-        print("Command Errors (stderr):", result.stderr)  # Capture error output
-    except subprocess.CalledProcessError as e:
-        print("Error Output:", e.stderr)  # If the command fails, capture error
-        print("Return Code:", e.returncode)
+        # Suppress Signal-CLI debug messages by redirecting stderr to /dev/null
+        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, check=True)
         logger.info(f"Message sent to {recipient}: {message}")
+        logger.debug(f"Command Output (stdout): {result.stdout.strip()}")
     except subprocess.CalledProcessError as e:
+        logger.error(f"Error Output: {e.stdout.strip()}")
+        logger.error(f"Return Code: {e.returncode}")
         logger.error(f"Error sending message to {recipient}: {e}")
     except Exception as e:
         logger.error(f"Unexpected error sending message to {recipient}: {e}")
+
+def load_schedule(schedule_file='scheduler.csv'):
+    schedule = {}
+    try:
+        with open(schedule_file, mode='r') as csvfile:
+            reader = csv.DictReader(filter(lambda row: not row.strip().startswith('#'), csvfile))
+            for row in reader:
+                day = row['day_of_week'].strip().lower()
+                start_time = datetime.strptime(row['start_time'], '%H:%M').time()
+                end_time = datetime.strptime(row['end_time'], '%H:%M').time()
+                schedule.setdefault(day, []).append((start_time, end_time))
+        logger.info(f"Schedule loaded from {schedule_file}.")
+    except Exception as e:
+        logger.error(f"Error loading schedule from {schedule_file}: {e}")
+    return schedule
 
 def monitor_presences(hort_api, kid_id, presences_per_users):
     presences = hort_api.get_presences(kid_id)
@@ -188,21 +199,6 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
     except Exception as e:
         logger.error(f"Error saving presence data: {e}")
 
-def load_schedule(schedule_file='scheduler.csv'):
-    schedule = {}
-    try:
-        with open(schedule_file, mode='r') as csvfile:
-            reader = csv.DictReader(filter(lambda row: not row.strip().startswith('#'), csvfile))
-            for row in reader:
-                day = row['day_of_week'].strip().lower()
-                start_time = datetime.strptime(row['start_time'], '%H:%M').time()
-                end_time = datetime.strptime(row['end_time'], '%H:%M').time()
-                schedule.setdefault(day, []).append((start_time, end_time))
-        logger.info(f"Schedule loaded from {schedule_file}.")
-    except Exception as e:
-        logger.error(f"Error loading schedule from {schedule_file}: {e}")
-    return schedule
-
 def get_next_window_start(now, schedule):
     weekday_str = now.strftime('%A').lower()
     today_schedule = schedule.get(weekday_str, [])
@@ -221,25 +217,31 @@ def get_next_window_start(now, schedule):
         next_day_schedule = schedule.get(weekday_str, [])
         if next_day_schedule:
             return datetime.combine(next_day.date(), next_day_schedule[0][0])
-        days_ahead +=1
+        days_ahead += 1
     return None
 
 def run_test_mode():
-    logging.info("Test mode file found. Running test mode.")
+    logger.info("Test mode file found. Running test mode.")
     for i in range(2):
-        logging.info("Simulating child check-in...")
+        logger.info("Simulating child check-in...")
         for chat in chat_ids:
             send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked in.")
-        time.sleep(60)
+        # Reduced sleep time for quicker testing
+        time.sleep(10)
 
-        logging.info("Simulating child check-out...")
+        logger.info("Simulating child check-out...")
         for chat in chat_ids:
             send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked out.")
-        time.sleep(60)
+        # Reduced sleep time for quicker testing
+        time.sleep(10)
 
     # Delete the test file after completing test runs
     os.remove(test_file_path)
-    logging.info("Test mode completed. Test file deleted. Resuming normal operation.")
+    logger.info("Test mode completed. Test file deleted.")
+
+    # Restart the service to resume normal operation
+    logger.info("Restarting service to resume normal operation.")
+    os.system("systemctl restart hortpro_notifier.service")
 
 def main_loop():
     schedule = load_schedule()
@@ -248,9 +250,10 @@ def main_loop():
 
     while True:
         try:
-             # Check if test mode file exists
+            # Check if test mode file exists
             if os.path.isfile(test_file_path):
                 run_test_mode()
+                
             now = datetime.now()
             weekday_str = now.strftime('%A').lower()
             current_time = now.time()
@@ -267,24 +270,37 @@ def main_loop():
                     break
 
             if within_window:
-                logger.info(f"Current time: {now.strftime('%H:%M')}. Starting scraper.")
                 hort_api = HortApi(email=HORTPRO_EMAIL, password=HORTPRO_PASSWORD, cookie_path=COOKIE_PATH)
                 kid_id = hort_api.get_kid_id()
-                if kid_id:
-                    monitor_presences(hort_api, kid_id, presences_per_users)
-                else:
-                    logger.error("No child found. Skipping this window.")
+                
+                while within_window:
+                    now = datetime.now()
+                    current_time = now.time()
 
-                sleep_seconds = (current_window_end - now).total_seconds()
-                if sleep_seconds >0:
-                    logger.info(f"Sleeping until end of current window at {current_window_end.strftime('%H:%M')}. ({int(sleep_seconds)} seconds)")
-                    time.sleep(sleep_seconds)
+                    # Recalculate if we are still within the window
+                    for window in today_schedule:
+                        start, end = window
+                        if start <= current_time <= end:
+                            within_window = True
+                            current_window_end = datetime.combine(now.date(), end)
+                            break
+                    else:
+                        within_window = False
+
+                    if kid_id:
+                        monitor_presences(hort_api, kid_id, presences_per_users)
+                    else:
+                        logger.error("No child found. Skipping this window.")
+
+                    if within_window:
+                        logger.info("Sleeping for 60 seconds before the next scrape.")
+                        time.sleep(60)
             else:
                 next_window_start = get_next_window_start(now, schedule)
                 if next_window_start:
                     sleep_seconds = (next_window_start - now).total_seconds()
                     logger.info(f"Outside time windows. Sleeping until next window at {next_window_start.strftime('%Y-%m-%d %H:%M')}. ({int(sleep_seconds)} seconds)")
-                    if sleep_seconds >0:
+                    if sleep_seconds > 0:
                         time.sleep(sleep_seconds)
                 else:
                     logger.info("No scheduled windows found. Sleeping for 1 hour.")
