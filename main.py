@@ -273,6 +273,13 @@ def main_loop():
                 hort_api = HortApi(email=HORTPRO_EMAIL, password=HORTPRO_PASSWORD, cookie_path=COOKIE_PATH)
                 kid_id = hort_api.get_kid_id()
                 
+                if not kid_id:
+                    logger.error("Failed to retrieve kid ID. Attempting to re-login and refresh cookie.")
+                    if os.path.exists(COOKIE_PATH):
+                        os.remove(COOKIE_PATH)
+                    hort_api = HortApi(email=HORTPRO_EMAIL, password=HORTPRO_PASSWORD, cookie_path=COOKIE_PATH)
+                    kid_id = hort_api.get_kid_id()
+
                 while within_window:
                     now = datetime.now()
                     current_time = now.time()
