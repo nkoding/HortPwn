@@ -8,7 +8,9 @@ import os
 from datetime import datetime, timedelta, time as dtime
 import logging
 from logging.handlers import RotatingFileHandler
+import threading
 
+KEEP_ALIVE_INTERVAL = 600  # 10 minutes in seconds to waiit to receive messages (which is needed by signal protocol)
 # Define application directory and test file path
 app_dir = os.path.dirname(os.path.abspath(__file__))
 test_file_path = os.path.join(app_dir, 'test')
@@ -161,7 +163,19 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
     for chat in chat_ids:
         recipient = chat["id"]
         recipient_type = chat["type"]
-        presence = presences_per_users.get(recipient, PresencesPerUser(recipient_id=recipient, recipient_type=recipient_type).presence)
+
+        # Initialize presence for the recipient if not present
+        if recipient not in presences_per_users:
+            presences_per_users[recipient] = PresencesPerUser(recipient_id=recipient, recipient_type=recipient_type)
+
+        presence = presences_per_users[recipient]
+
+        # Reset the start_msg_sent and end_msg_sent if it's a new day
+        if presence.date_start is None or datetime.fromisoformat(presence.date_start).date() != today:
+            presence.start_msg_sent = False
+            presence.end_msg_sent = False
+            presence.date_start = start_date
+            presence.date_end = end_date
 
         # Check-In
         if start_date and not presence.start_msg_sent:
@@ -199,6 +213,7 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
     except Exception as e:
         logger.error(f"Error saving presence data: {e}")
 
+
 def get_next_window_start(now, schedule):
     weekday_str = now.strftime('%A').lower()
     today_schedule = schedule.get(weekday_str, [])
@@ -222,31 +237,50 @@ def get_next_window_start(now, schedule):
 
 def run_test_mode():
     logger.info("Test mode file found. Running test mode.")
-    for i in range(2):
-        logger.info("Simulating child check-in...")
-        for chat in chat_ids:
-            send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked in.")
-        # Reduced sleep time for quicker testing
-        time.sleep(10)
+    logger.info("Simulating child check-in...")
+    for chat in chat_ids:
+        send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked in.")
+    # Reduced sleep time for quicker testing
+    time.sleep(10)
 
-        logger.info("Simulating child check-out...")
-        for chat in chat_ids:
-            send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked out.")
-        # Reduced sleep time for quicker testing
-        time.sleep(10)
+    logger.info("Simulating child check-out...")
+    for chat in chat_ids:
+        send_signal_message(chat["id"], chat["type"], "Test Mode: Your child has checked out.")
 
     # Delete the test file after completing test runs
     os.remove(test_file_path)
     logger.info("Test mode completed. Test file deleted.")
 
     # Restart the service to resume normal operation
-    logger.info("Restarting service to resume normal operation.")
-    os.system("systemctl restart hortpro_notifier.service")
+    # logger.info("Restarting service to resume normal operation.")
+    # os.system("systemctl restart hortpro_notifier.service")
+    
+def send_keep_alive_message():
+    logger.info("Sending keep-alive message to maintain Signal connection...")
+    try:
+        # Send a "ping" message to yourself or simply sync contacts to keep the connection active
+        # Using sync to avoid redundant messages, but you can send a message if preferred.
+        result = subprocess.run(
+            [signal_cli_path, "-u", SIGNAL_NUMBER, "receive"], capture_output=True, text=True, check=True
+        )
+        logger.debug("Keep-alive sync completed successfully.")
+        logger.debug(f"Keep-alive Command Output (stdout): {result.stdout}")
+        logger.debug(f"Keep-alive Command Errors (stderr): {result.stderr}")
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Error during keep-alive operation: {e.stderr}")
+    except Exception as e:
+        logger.error(f"Unexpected error during keep-alive operation: {e}")
+
+    # Schedule the next keep-alive call
+    threading.Timer(KEEP_ALIVE_INTERVAL, send_keep_alive_message).start()
 
 def main_loop():
     schedule = load_schedule()
 
     presences_per_users = {}
+    
+    # Call this function during startup to initiate the keep-alive loop
+    send_keep_alive_message()
 
     while True:
         try:
@@ -320,3 +354,4 @@ def main_loop():
 if __name__ == "__main__":
     logger.info("HortPro Signal Notifier started.")
     main_loop()
+
