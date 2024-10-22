@@ -1,8 +1,123 @@
+2024-10-22 11:57:18,081 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 11:57:18,149 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 11:57:18,151 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 11:57:18,151 - DEBUG - Get Presences Response Text: a
+2024-10-22 11:57:18,152 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 11:57:18,152 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 11:57:18,153 - DEBUG - Presence data updated and saved.
+2024-10-22 11:57:18,154 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 11:58:18,155 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 11:58:18,231 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 11:58:18,233 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 11:58:18,233 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 11:58:18,234 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 11:58:18,234 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 11:58:18,235 - DEBUG - Presence data updated and saved.
+2024-10-22 11:58:18,235 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 11:59:18,237 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 11:59:18,306 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 11:59:18,308 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 11:59:18,308 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 11:59:18,309 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 11:59:18,309 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 11:59:18,310 - DEBUG - Presence data updated and saved.
+2024-10-22 11:59:18,310 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:00:18,311 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:00:18,396 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:00:18,398 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:00:18,399 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:00:18,399 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:00:18,399 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:00:18,400 - DEBUG - Presence data updated and saved.
+2024-10-22 12:00:18,400 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:01:18,402 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:01:18,462 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:01:18,464 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:01:18,464 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:01:18,465 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:01:18,465 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:01:18,466 - DEBUG - Presence data updated and saved.
+2024-10-22 12:01:18,466 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:02:18,467 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:02:18,559 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:02:18,561 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:02:18,561 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:02:18,562 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:02:18,562 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:02:18,563 - DEBUG - Presence data updated and saved.
+2024-10-22 12:02:18,563 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:03:18,564 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:03:18,658 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:03:18,660 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:03:18,661 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:03:18,661 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:03:18,662 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:03:18,662 - DEBUG - Presence data updated and saved.
+2024-10-22 12:03:18,663 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:04:18,664 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:04:18,732 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:04:18,734 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:04:18,734 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"adebug2: channel 0: window 983040 sent adjust 65536
+b551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:04:18,735 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:04:18,735 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:04:18,736 - DEBUG - Presence data updated and saved.
+2024-10-22 12:04:18,736 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:05:18,738 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:05:18,852 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:05:18,854 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:05:18,855 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:05:18,855 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:05:18,856 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:05:18,856 - DEBUG - Presence data updated and saved.
+2024-10-22 12:05:18,857 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:06:18,858 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:06:18,956 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:06:18,958 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:06:18,958 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:06:18,959 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:06:18,960 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:06:18,960 - DEBUG - Presence data updated and saved.
+2024-10-22 12:06:18,961 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:07:18,962 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:07:19,031 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:07:19,033 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:07:19,036 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:07:19,037 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+2024-10-22 12:07:19,038 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 12:07:19,039 - DEBUG - Presence data updated and saved.
+2024-10-22 12:07:19,039 - INFO - Sleeping for 60 seconds before the next scrape.
+2024-10-22 12:08:19,040 - INFO - Retrieving presence data from URL: https://elternportal.hortpro.de/api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5
+2024-10-22 12:08:19,126 - DEBUG - https://elternportal.hortpro.de:443 "GET /api/kids/03e901fe-f886-4233-a6eb-cbc11e9c91dd/presences?start=0&limit=5 HTTP/1.1" 200 727
+2024-10-22 12:08:19,128 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 12:08:19,128 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"ab551202-d139-4a24-8b47-67a3c777cdf9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58},{"id":"ec8235cc-0cd4-40b5-bf71-38d42662a254","date_start":"2024-10-18T09:08:35+02:00","date_end":"2024-10-18T15:12:47+02:00","duration":364},{"id":"b3465ba9-627a-4bd0-8178-6643ed71f9cf","date_start":"2024-10-16T08:46:10+02:00","date_end":"2024-10-16T16:17:51+02:00","duration":451},{"id":"1-...-","date_start":"2024-10-15T09:24:37+02:00","date_end":"2024-10-15T15:56:57+02:00","duration":392}]}}
+2024-10-22 12:08:19,129 - DEBUG - Get Presences Response JSON: {'success': True, 'data': {'count': 54, 'rows': [{'id': '33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f', 'date_start': '2024-10-22T11:56:25+02:00', 'date_end': None, 'duration': None}, {'id': 'ab551202-d139-4a24-8b47-67a3c777cdf9', 'date_start': '2024-10-21T13:09:52+02:00', 'date_end': '2024-10-21T14:07:42+02:00', 'duration': 58}, {'id': 'ec8235cc-0cd4-40b5-bf71-38d42662a254', 'date_start': '2024-10-18T09:08:35+02:00', 'date_end': '2024-10-18T15:12:47+02:00', 'duration': 364}, {'id': 'b3465ba9-627a-4bd0-8178-6643ed71f9cf', 'date_start': '2024-10-16T08:46:10+02:00', 'date_end': '2024-10-16T16:17:51+02:00', 'duration': 451}, {'id': '1-...-', 'date_start': '2024-10-15T09:24:37+02:00', 'date_end': '2024-10-15T15:56:57+02:00', 'duration': 392}]}}
+
+
+
 {
     "success": true,
     "data": {
-        "count": 51,
+        "count": 54,
         "rows": [
+            {
+                "id": "33be7314-7fed-4fd2-b3fe-a1a0cf6a4b5f",
+                "date_start": "2024-10-22T11:56:25+02:00",
+                "date_end": null,
+                "duration": null
+            },
+            {
+                "id": "ab551202-d139-4a24-8b47-67a3c777cdf9",
+                "date_start": "2024-10-21T13:09:52+02:00",
+                "date_end": "2024-10-21T14:07:42+02:00",
+                "duration": 58
+            },
+            {
+                "id": "ec8235cc-0cd4-40b5-bf71-38d42662a254",
+                "date_start": "2024-10-18T09:08:35+02:00",
+                "date_end": "2024-10-18T15:12:47+02:00",
+                "duration": 364
+            },
             {
                 "id": "b3465ba9-627a-4bd0-8178-6643ed71f9cf",
                 "date_start": "2024-10-16T08:46:10+02:00",
@@ -10,29 +125,21 @@
                 "duration": 451
             },
             {
-                "id": "1885097c-1001-495b-a5ac-566a4d3a98fd",
+                "id": "1-...-",
                 "date_start": "2024-10-15T09:24:37+02:00",
                 "date_end": "2024-10-15T15:56:57+02:00",
                 "duration": 392
-            },
-            {
-                "id": "937fe8b8-3fd8-4f9b-8751-9c01b4bc797c",
-                "date_start": "2024-10-14T09:02:40+02:00",
-                "date_end": "2024-10-14T16:12:34+02:00",
-                "duration": 430
-            },
-            {
-                "id": "f3ffaa24-7a02-4e46-a360-bc3e856042fb",
-                "date_start": "2024-10-11T09:23:39+02:00",
-                "date_end": "2024-10-11T15:25:47+02:00",
-                "duration": 362
-            },
-            {
-                "id": "1043d114-42c8-4764-a6e2-5b0c0b841797",
-                "date_start": "2024-10-10T08:18:30+02:00",
-                "date_end": "2024-10-10T16:01:50+02:00",
-                "duration": 463
             }
         ]
     }
 }
+
+
+
+
+2024-10-22 11:59:18,308 - DEBUG - Get Presences Response Status Code: 200
+2024-10-22 11:59:18,308 - DEBUG - Get Presences Response Text: {"success":true,"data":{"count":54,"rows":[{"id":"...","date_start":"2024-10-22T11:56:25+02:00","date_end":null,"duration":null},{"id":"a...f9","date_start":"2024-10-21T13:09:52+02:00","date_end":"2024-10-21T14:07:42+02:00","duration":58}}}
+2024-10-22 11:59:18,309 - DEBUG - Get Presences Response JSON: ...
+2024-10-22 11:59:18,309 - DEBUG - Today's presence data: Start: 2024-10-22T11:56:25+02:00, End: None
+2024-10-22 11:59:18,310 - DEBUG - Presence data updated and saved.
+2024-10-22 11:59:18,310 - INFO - Sleeping for 60 seconds before the next scrape.

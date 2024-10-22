@@ -170,8 +170,8 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
 
         presence = presences_per_users[recipient]
 
-        # Reset the start_msg_sent and end_msg_sent if it's a new day
-        if presence.date_start is None or datetime.fromisoformat(presence.date_start).date() != today:
+        # Reset the start_msg_sent and end_msg_sent if the start date is different or if it's a new day
+        if presence.date_start != start_date:
             presence.start_msg_sent = False
             presence.end_msg_sent = False
             presence.date_start = start_date
@@ -212,7 +212,6 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
         logger.debug("Presence data updated and saved.")
     except Exception as e:
         logger.error(f"Error saving presence data: {e}")
-
 
 def get_next_window_start(now, schedule):
     weekday_str = now.strftime('%A').lower()
