@@ -128,6 +128,15 @@ def load_schedule(schedule_file='scheduler.csv'):
         logger.error(f"Error loading schedule from {schedule_file}: {e}")
     return schedule
 
+class PresencesPerUser:
+    def __init__(self, recipient_id, recipient_type):
+        self.recipient_id = recipient_id
+        self.recipient_type = recipient_type
+        self.date_start = None
+        self.date_end = None
+        self.start_msg_sent = False
+        self.end_msg_sent = False
+
 def monitor_presences(hort_api, kid_id, presences_per_users):
     presences = hort_api.get_presences(kid_id)
     if not presences:
@@ -170,8 +179,8 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
 
         presence = presences_per_users[recipient]
 
-        # Reset the start_msg_sent and end_msg_sent if the start date is different or if it's a new day
-        if presence.date_start != start_date:
+        # Reset the start_msg_sent and end_msg_sent if it's a new day
+        if presence.date_start is None or datetime.fromisoformat(presence.date_start).date() != today:
             presence.start_msg_sent = False
             presence.end_msg_sent = False
             presence.date_start = start_date
@@ -212,6 +221,7 @@ def monitor_presences(hort_api, kid_id, presences_per_users):
         logger.debug("Presence data updated and saved.")
     except Exception as e:
         logger.error(f"Error saving presence data: {e}")
+
 
 def get_next_window_start(now, schedule):
     weekday_str = now.strftime('%A').lower()
